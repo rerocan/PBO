@@ -1,0 +1,42 @@
+@startuml
+interface VehicleOperations {
+    + startEngine(): void
+    + stopEngine(): void
+    + displayInfo(): void
+}
+
+abstract class Vehicle {
+    - brand: String
+    - model: String
+    + Vehicle(brand: String, model: String)
+    + getBrand(): String
+    + setBrand(brand: String): void
+    + getModel(): String
+    + setModel(model: String): void
+    + showDetails(): void
+}
+
+class Car {
+    - numberOfDoors: int
+    + Car(brand: String, model: String, numberOfDoors: int)
+    + getNumberOfDoors(): int
+    + setNumberOfDoors(numberOfDoors: int): void
+    + startEngine(): void
+    + stopEngine(): void
+    + displayInfo(): void
+}
+
+class Motorcycle {
+    - hasSidecar: boolean
+    + Motorcycle(brand: String, model: String, hasSidecar: boolean)
+    + isHasSidecar(): boolean
+    + setHasSidecar(hasSidecar: boolean): void
+    + startEngine(): void
+    + stopEngine(): void
+    + displayInfo(): void
+}
+
+VehicleOperations <|.. Vehicle
+Vehicle <|-- Car
+Vehicle <|-- Motorcycle
+@enduml
